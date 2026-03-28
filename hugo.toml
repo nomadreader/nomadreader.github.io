@@ -1,0 +1,32 @@
+baseURL = "https://nomadreader.github.io/"
+languageCode = "en-us"
+title = "Nomadreader"
+
+[params]
+  tagline = "Biostatistician · Tea Enthusiast"
+  description = "Personal archive of tea notes, book reviews, technical writing, and tea culture."
+
+[taxonomies]
+  tag = "tags"
+
+[menu]
+  [[menu.main]]
+    name = "Home · 홈"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Tea Notes · 차 노트"
+    url = "/tea-notes/"
+    weight = 2
+  [[menu.main]]
+    name = "Book Reviews · 독서 노트"
+    url = "/book-reviews/"
+    weight = 3
+  [[menu.main]]
+    name = "Technical Notes · 기술 노트"
+    url = "/tech-notes/"
+    weight = 4
+  [[menu.main]]
+    name = "Tea & Culture · 차와 문화"
+    url = "/tea-culture/"
+    weight = 5

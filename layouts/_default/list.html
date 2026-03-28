@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="section-header">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
+</div>
+
+{{ if .Pages }}
+<ul class="post-list">
+  {{ range .Pages.ByDate.Reverse }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <time>{{ .Date.Format "2006.01.02" }}</time>
+  </li>
+  {{ end }}
+</ul>
+{{ else }}
+<p style="color: var(--muted);">No notes yet. · 아직 작성된 노트가 없습니다.</p>
+{{ end }}
+{{ end }}

@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="about-block">
+  <h2>About · 소개</h2>
+  <p>I am a Biostatistician (PhD) working on statistics, experiment design, and causal inference. Outside of research, I am a devoted tea drinker — particularly of pu-erh — and spend a lot of time tasting, studying, and writing about tea.</p>
+  <p>This site is a personal archive of my notes across several areas. All content is written in Korean, English, or both.</p>
+  <hr>
+  <p><strong>Research interests:</strong> causal inference · experiment design · statistical methodology</p>
+</div>
+
+<hr>
+
+<h2>Recent · 최근 글</h2>
+
+{{ $sections := dict "tea-notes" "Tea Notes · 차 노트" "book-reviews" "Book Reviews · 독서 노트" "tech-notes" "Technical Notes · 기술 노트" "tea-culture" "Tea & Culture · 차와 문화" }}
+
+{{ range $slug, $label := $sections }}
+  {{ $section := site.GetPage $slug }}
+  {{ with $section }}
+    {{ if .Pages }}
+    <strong>{{ $label }}</strong>
+    <ul class="post-list">
+      {{ range (first 3 .Pages.ByDate.Reverse) }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time>{{ .Date.Format "2006.01.02" }}</time>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ end }}
